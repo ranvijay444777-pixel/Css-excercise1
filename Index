@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Exercise 3 Solutions</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        section { background: white; padding: 20px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+        /* Problem 1: Vertical Stack */
+        .box-red { width: 100px; height: 100px; background-color: red; margin-bottom: 10px; }
+
+        /* Problem 2: Horizontal Row */
+        .flex-container { display: flex; gap: 20px; }
+
+        /* Problem 3: Centered Login Card */
+        .pink-bg { background-color: #ffc0cb; height: 300px; display: flex; justify-content: center; align-items: center; }
+        .login-card { background: white; padding: 20px; width: 250px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .login-card input { width: 90%; margin: 5px 0; padding: 8px; border: 1px solid #ddd; }
+        .login-btn { width: 100%; padding: 10px; background: #007bff; color: white; border: none; margin-top: 10px; cursor: pointer; }
+        .forgot { font-size: 12px; color: #007bff; margin-top: 10px; display: block; text-decoration: none; }
+
+        /* Problem 4: Dropdown Menu */
+        .navbar { background: #333; display: flex; list-style: none; padding: 0; margin: 0; }
+        .navbar li { position: relative; padding: 15px 20px; color: white; cursor: pointer; }
+        .navbar li:hover { background: #444; }
+        .dropdown { position: absolute; top: 100%; left: 0; background: #444; width: 150px; display: none; list-style: none; padding: 0; }
+        .navbar li:hover .dropdown { display: block; }
+        .dropdown li { padding: 10px; border-bottom: 1px solid #555; }
+
+        /* Problem 5: Vertical Sidebar Nav */
+        .sidebar { width: 200px; background: #333; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
+        .sidebar-header { background: #00bcd4; color: white; padding: 15px; font-weight: bold; }
+        .sidebar-item { padding: 15px; color: #ccc; border-bottom: 1px solid #444; cursor: pointer; }
+        .sidebar-item:hover { background: #3d3d3d; color: white; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h2>Problem 1</h2>
+        <div class="box-red"></div>
+        <div class="box-red"></div>
+    </section>
+
+    <section>
+        <h2>Problem 2</h2>
+        <div class="flex-container">
+            <div class="box-red"></div>
+            <div class="box-red"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Problem 3</h2>
+        <div class="pink-bg">
+            <div class="login-card">
+                <h3>Login</h3>
+                <label style="font-size: 12px; display: block; text-align: left;">Username</label>
+                <input type="text" placeholder="Enter your username">
+                <label style="font-size: 12px; display: block; text-align: left;">Password</label>
+                <input type="password" placeholder="Enter your password">
+                <button class="login-btn">Login</button>
+                <a href="#" class="forgot">Forgot Password?</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Problem 4</h2>
+        <ul class="navbar">
+            <li>Home</li>
+            <li>Services
+                <ul class="dropdown">
+                    <li>Web Design</li>
+                    <li>SEO</li>
+                    <li>Marketing</li>
+                </ul>
+            </li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <div style="height: 150px;"></div> </section>
+
+    <section>
+        <h2>Problem 5</h2>
+        <div class="sidebar">
+            <div class="sidebar-header">Home</div>
+            <div class="sidebar-item">Services</div>
+            <div class="sidebar-item">About</div>
+            <div class="sidebar-item">Portfolio</div>
+            <div class="sidebar-item">Contact</div>
+        </div>
+    </section>
+
+</body>
+</html>
