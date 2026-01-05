@@ -3,97 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Exercise 3 Solutions</title>
+    <title>Scrolling Webpage Layout</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
-        section { background: white; padding: 20px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        /* General Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
 
-        /* Problem 1: Vertical Stack */
-        .box-red { width: 100px; height: 100px; background-color: red; margin-bottom: 10px; }
+        body {
+            background-color: #333; /* Dark background to act as the outer border */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
 
-        /* Problem 2: Horizontal Row */
-        .flex-container { display: flex; gap: 20px; }
+        .page-wrapper {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            border: 10px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
 
-        /* Problem 3: Centered Login Card */
-        .pink-bg { background-color: #ffc0cb; height: 300px; display: flex; justify-content: center; align-items: center; }
-        .login-card { background: white; padding: 20px; width: 250px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-        .login-card input { width: 90%; margin: 5px 0; padding: 8px; border: 1px solid #ddd; }
-        .login-btn { width: 100%; padding: 10px; background: #007bff; color: white; border: none; margin-top: 10px; cursor: pointer; }
-        .forgot { font-size: 12px; color: #007bff; margin-top: 10px; display: block; text-decoration: none; }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+        }
 
-        /* Problem 4: Dropdown Menu */
-        .navbar { background: #333; display: flex; list-style: none; padding: 0; margin: 0; }
-        .navbar li { position: relative; padding: 15px 20px; color: white; cursor: pointer; }
-        .navbar li:hover { background: #444; }
-        .dropdown { position: absolute; top: 100%; left: 0; background: #444; width: 150px; display: none; list-style: none; padding: 0; }
-        .navbar li:hover .dropdown { display: block; }
-        .dropdown li { padding: 10px; border-bottom: 1px solid #555; }
+        /* --- SECTION 1: COLORED GRID LAYOUT --- */
+        .header-row {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 100px;
+        }
+        .logo { background-color: #FF0000; font-size: 24px; color: black; }
+        .heading-top { background-color: #008000; font-size: 28px; color: black; }
 
-        /* Problem 5: Vertical Sidebar Nav */
-        .sidebar { width: 200px; background: #333; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
-        .sidebar-header { background: #00bcd4; color: white; padding: 15px; font-weight: bold; }
-        .sidebar-item { padding: 15px; color: #ccc; border-bottom: 1px solid #444; cursor: pointer; }
-        .sidebar-item:hover { background: #3d3d3d; color: white; }
+        .menu {
+            background-color: #FFFF00;
+            height: 60px;
+            font-size: 22px;
+            color: black;
+        }
+
+        .sections-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 160px;
+        }
+        .s1 { background-color: #0000FF; color: black; }
+        .s2 { background-color: #666666; color: black; }
+        .s3 { background-color: #CDB0D8; color: black; }
+
+        .main-row {
+            display: grid;
+            grid-template-columns: 75% 25%;
+            height: 450px;
+        }
+        .contents { background-color: #00FF99; font-size: 32px; color: black; }
+        .sidebar { background-color: #808000; font-size: 22px; color: black; }
+
+        .footer {
+            background-color: #4DA2D6;
+            height: 70px;
+            font-size: 22px;
+            color: black;
+        }
+
+        /* Spacer between sections */
+        .spacer {
+            height: 50px;
+            background-color: white;
+        }
+
+        /* --- SECTION 2: LEMON CONTENT LAYOUT --- */
+        .lemon-header {
+            background-color: #D6F1A8; /* Light Green */
+            color: #A38CB4; /* Purple Heading Color */
+            height: 120px;
+            font-size: 45px;
+            letter-spacing: 1px;
+        }
+
+        .lemon-content {
+            display: flex;
+            padding: 60px 40px;
+            gap: 50px;
+            background-color: white;
+            align-items: flex-start;
+        }
+
+        .lemon-image-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .lemon-image-side img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+        }
+
+        .lemon-text-side {
+            flex: 1;
+            color: #555;
+            font-weight: normal; /* Paragraphs are usually normal weight */
+            line-height: 1.6;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .lemon-text-side p {
+            margin-bottom: 25px;
+        }
     </style>
 </head>
 <body>
 
-    <section>
-        <h2>Problem 1</h2>
-        <div class="box-red"></div>
-        <div class="box-red"></div>
-    </section>
-
-    <section>
-        <h2>Problem 2</h2>
-        <div class="flex-container">
-            <div class="box-red"></div>
-            <div class="box-red"></div>
+    <div class="page-wrapper">
+        
+        <div class="header-row">
+            <div class="box logo">LOGO</div>
+            <div class="box heading-top">Website Heading</div>
         </div>
-    </section>
 
-    <section>
-        <h2>Problem 3</h2>
-        <div class="pink-bg">
-            <div class="login-card">
-                <h3>Login</h3>
-                <label style="font-size: 12px; display: block; text-align: left;">Username</label>
-                <input type="text" placeholder="Enter your username">
-                <label style="font-size: 12px; display: block; text-align: left;">Password</label>
-                <input type="password" placeholder="Enter your password">
-                <button class="login-btn">Login</button>
-                <a href="#" class="forgot">Forgot Password?</a>
+        <div class="box menu">MENU</div>
+
+        <div class="sections-row">
+            <div class="box s1">SECTION 1</div>
+            <div class="box s2">SECTION 2</div>
+            <div class="box s3">SECTION 3</div>
+        </div>
+
+        <div class="main-row">
+            <div class="box contents">PAGE CONTENTS</div>
+            <div class="box sidebar">SIDE<br>BAR</div>
+        </div>
+
+        <div class="box footer">PAGE FOOTER</div>
+        <div class="spacer"></div>
+
+        <div class="box lemon-header">A COMPLETE WEBPAGE</div>
+        
+        <div class="lemon-content">
+            <div class="lemon-image-side">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/056/657/076/small/a-vibrant-orange-fruit-cut-in-half-showcasing-its-juicy-segments-and-bright-color-photo.JPG" alt="Lemon">
+            </div>
+            <div class="lemon-text-side">
+                <p>In ac ipsum quis turpis adipiscing commodo. Mauris fermentum quam in risus eleifend fringilla. Aliquam placerat, ipsum sit amet cursus rhoncus, augue mi tincidunt erat, et consequat velit massa a velit. Cras eleifend lectus nec diam ornare, eu placerat mi ultricies. Etiam tempor iaculis feugiat.</p>
+                
+                <p>Ut tincidunt tempus libero non convallis. Morbi consequat eros eget elit porta porta. Curabitur placerat eros dui, vitae lobortis sapien laoreet ac. Maecenas a lacus diam. Morbi ante lectus, ornare sed suscipit at, tempus elementum purus. Suspendisse sodales hendrerit pharetra. Integer odio risus, convallis eu egestas ac, venenatis nec leo.</p>
             </div>
         </div>
-    </section>
-
-    <section>
-        <h2>Problem 4</h2>
-        <ul class="navbar">
-            <li>Home</li>
-            <li>Services
-                <ul class="dropdown">
-                    <li>Web Design</li>
-                    <li>SEO</li>
-                    <li>Marketing</li>
-                </ul>
-            </li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-        <div style="height: 150px;"></div> </section>
-
-    <section>
-        <h2>Problem 5</h2>
-        <div class="sidebar">
-            <div class="sidebar-header">Home</div>
-            <div class="sidebar-item">Services</div>
-            <div class="sidebar-item">About</div>
-            <div class="sidebar-item">Portfolio</div>
-            <div class="sidebar-item">Contact</div>
         </div>
-    </section>
 
 </body>
 </html>
